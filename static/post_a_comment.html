@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="css/mui.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet"/>
+    <script src="js/mui.js"></script>
+    <title>Новая тема</title>
+</head>
+<body onload="foo()">
+<div id="sidebar">
+    <div class="mui--text-white mui--text-display1 mui--align-vertical">
+        <a href="/" style="color: #FFFFFF">Imgboard</a>
+        <br>
+        <small class="author">by Llargoz</small>
+    </div>
+</div>
+<div id="content" class="mui-container-fluid">
+    <div class="mui-row">
+        <div class="mui-col-sm-10 mui-col-sm-offset-1">
+            <br>
+            <h1>Добавление комментария</h1>
+            <div class="mui-divider"></div>
+            <br>
+            <div class="mui-textfield mui-textfield--float-label">
+                <input onkeydown="this.value = this.value.replace(/\s+/g, ' ')" type="text" id="commentator" required minlength="4" maxlength="16">
+                <label>Имя пользователя</label>
+            </div>
+            <div class="mui-textfield mui-textfield--float-label">
+                <textarea class="post_text" onkeydown="this.value = this.value.replace(/\s\s\s+/g, ' ')" id="comment" maxlength="280" required minlength="10"></textarea>
+                <label>Введите сообщение</label>
+            </div>
+            <button id="comment_btn" class="mui-btn mui-btn--raised mui-btn--accent">Оставить комментарий</button>
+        </div>
+    </div>
+    <script src="js/comment_posted.js"></script>
+</div>
