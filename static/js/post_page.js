@@ -1,4 +1,4 @@
-let url = 'http://localhost:3000/';
+let url = 'https://llargozzbrd.tk/';
 
 function link (doc) {
     if (doc.indexOf('#') === -1) {

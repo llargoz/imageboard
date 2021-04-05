@@ -1,4 +1,4 @@
-let url = 'http://localhost:3000/';
+let url = 'https://llargozzbrd.tk/';
 
 function loadStorage() {
     let body = {

@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const mysql2 = require('mysql2');
 const nl2br  = require('nl2br');
+const htmlspecialchars = require('htmlspecialchars');
 
 const connection = mysql2.createConnection({
     host: "127.0.0.1",
@@ -18,8 +19,8 @@ connection.connect(function(err) {
 
 const httpServer = http.createServer((req, res) => {
     console.log('req: '+req.url);
-}).listen(3000, () => {
-    console.log('server is in 3000');
+}).listen(8000, () => {
+    console.log('server is in 8000');
 });
 
 httpServer.on('request', (req, res) => {
@@ -37,7 +38,7 @@ httpServer.on('request', (req, res) => {
             }
             if (params !== undefined) {
                 if (params.type === 0) {
-                    connection.promise().query("INSERT INTO imgbrd.posts (user_name, post_name, msg)VALUES ( ? , ? , ? );", [params.user_name, params.post_name, params.msg])
+                    connection.promise().query("INSERT INTO imgbrd.posts (user_name, post_name, msg)VALUES ( ? , ? , ? );", [params.user_name, params.post_name, htmlspecialchars(params.msg)])
                         .then(result => {
                             res.end(JSON.stringify(result[0].insertId));
                             console.log("Msg is added!");
@@ -65,9 +66,9 @@ httpServer.on('request', (req, res) => {
                                         newest.post_name.push(results[i].post_name);
                                         newest.user_name.push(results[i].user_name);
                                         newest.msg.push(nl2br(results[i].msg));
-                                        fs.access('static/posts/' + results[i].id + '.html', (err) => {
+                                        fs.access('./static/posts/' + results[i].id + '.html', (err) => {
                                             if (err) {
-                                                fs.writeFile('static/posts/' + results[i].id + '.html', '<!doctype html>\n' +
+                                                fs.writeFile('./static/posts/' + results[i].id + '.html', '<!doctype html>\n' +
                                                     '<html lang="en">\n' +
                                                     '<head>\n' +
                                                     '    <meta charset="utf-8">\n' +
@@ -132,14 +133,14 @@ httpServer.on('request', (req, res) => {
                             });
                         })
                         .catch(err => {
-                            console.log(err)
-                            res.end(JSON.stringify("ERROR"))
+                            console.log(err);
+                            res.end(JSON.stringify("ERROR"));
                         })
                 }
                 else if (params.type === 2) {
                     let db_name = params.page;
                     console.log(params.page.slice(params.page.lastIndexOf('/') + 1));
-                    connection.promise().query("INSERT INTO imgbrd." + db_name + "(name, comment)VALUES ( ? , ? );", [params.name, params.comment])
+                    connection.promise().query("INSERT INTO imgbrd." + db_name + "(name, comment)VALUES ( ? , ? );", [params.name, htmlspecialchars(params.comment)])
                         .then(result => {
                             res.end(JSON.stringify(result[0].insertId));
                             console.log("Msg is added!");
