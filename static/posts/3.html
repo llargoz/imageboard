@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link href="../css/mui.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet"/>
+    <script defer src="../js/mui.js"></script>
+    <title>Имиджборд!</title>
+</head>
+<body>
+<div id="main"><button onclick="document.location.href = '/post_a_comment'" class="mui-btn mui-btn--fab mui-btn--accent floating_btn" id="new_post">+</button>    <div id="sidebar">
+        <div class="mui--text-white mui--text-display1 mui--align-vertical">
+            <a id='main_page' href="/" style="color: #FFFFFF">Imgboard</a>
+            <br>
+            <small class="author">by Llargoz</small>
+        </div>
+    </div>
+    <div id="content" class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-sm-10 mui-col-sm-offset-1">
+                <br>
+                <h1>HTML</h1>
+                <div class=\"mui--text-black-54\">Автор: Википедия</div>
+                <div class="mui-divider"></div>
+                <br>
+                <div>HTML — теговый язык разметки документов. Любой документ на языке HTML представляет собой набор элементов, причём начало и конец каждого элемента обозначается специальными пометками — тегами. Элементы могут быть пустыми, то есть не содержащими никакого текста и других данных. В этом случае обычно не указывается закрывающий тег (например, тег переноса строки &lt;br/&gt; — одиночный и закрывать его не нужно) . Кроме того, элементы могут иметь атрибуты, определяющие какие-либо их свойства (например, атрибут href=&quot; у ссылки). Атрибуты указываются в открывающем теге. Вот примеры фрагментов HTML-документа:<br />
+<br />
+Регистр, в котором набрано имя элемента и имена атрибутов, в HTML значения не имеет (в отличие от XHTML). Элементы могут быть вложенными. Например, следующий код:<br />
+<br />
+&lt;!DOCTYPE html&gt;<br />
+&lt;html&gt; &lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;HTML Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;p&gt; &lt;b&gt; Этот текст будет полужирным, &lt;i&gt;а этот — ещё и курсивным&lt;/i&gt;. &lt;/b&gt; &lt;/p&gt; &lt;/body&gt;<br />
+&lt;/html&gt;</div>
+                <br>
+                <div class="mui-divider"></div>
+                <h3>Комментарии:</h3>
+                <script src="../js/post_page.js"></script>
+                <script defer>createHTML()</script>
+            </div>
+        </div>
+    </div></div></body>
+</html>
